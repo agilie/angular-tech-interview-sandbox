@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../_services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,7 +12,7 @@ export class SignUpComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -31,6 +32,9 @@ export class SignUpComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-    alert('Form submitted successfully!!!');
+    this.authService.signUp(this.form.value.email, this.form.value.password)
+      .subscribe(res => {
+        alert('Form submitted successfully!!!');
+      });
   }
 }

@@ -5,6 +5,7 @@ import {SignUpComponent} from './sign-up/sign-up.component';
 import {AuthRoutingModule} from './auth-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {EmailService} from './_services/email-service';
+import {AuthService} from './_services/auth.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import {EmailService} from './_services/email-service';
   ],
   providers: [
     EmailService,
+    AuthService,
   ]
 })
 export class AuthModule {

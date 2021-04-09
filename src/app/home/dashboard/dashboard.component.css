@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+}
+
+.animated {
+  position: absolute;
+  animation: moveit 3s ease-in infinite;
+}
+
+@keyframes moveit {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 300px
+  }
+  100% {
+    top: 0;
+  }
+}

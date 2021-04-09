@@ -4,3 +4,7 @@
   border: solid 1px blue;
   width: 120px;
 }
+
+.input.password {
+  -webkit-text-security: disc;
+}

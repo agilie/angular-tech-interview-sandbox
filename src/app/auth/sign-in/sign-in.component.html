@@ -1,1 +1,16 @@
-<p>sign-in works!</p>
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div>
+    <app-input-field></app-input-field>
+  </div>
+  <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+    <span *ngIf="form.get('email').errors.required" class="error-message">Email is required</span>
+    <span *ngIf="form.get('email').errors.email" class="error-message">Email format is not correct</span>
+  </div>
+  <div>
+    <app-input-field type="password"></app-input-field>
+  </div>
+  <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+    <span *ngIf="form.get('password').errors.required" class="error-message">Password is required</span>
+  </div>
+  <button type="submit">Sign In</button>
+</form>

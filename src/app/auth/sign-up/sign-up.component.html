@@ -2,11 +2,21 @@
   <div>
     <input type="email" formControlName="email">
   </div>
+  <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+    <span *ngIf="form.get('email').errors.required" class="error-message">Email is required</span>
+    <span *ngIf="form.get('email').errors.email" class="error-message">Email format is not correct</span>
+  </div>
   <div>
     <input type="password" formControlName="password">
   </div>
+  <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+    <span *ngIf="form.get('password').errors.required" class="error-message">Password is required</span>
+  </div>
   <div>
     <input type="password" formControlName="passwordConfirmation">
+  </div>
+  <div *ngIf="form.get('passwordConfirmation')?.touched && form.get('passwordConfirmation')?.invalid">
+    <span *ngIf="form.get('passwordConfirmation').errors.required" class="error-message">Password should be confirmed</span>
   </div>
   <button type="submit">Sign Up</button>
 </form>

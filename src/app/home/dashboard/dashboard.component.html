@@ -1,4 +1,35 @@
 <div class="container">
   <img [src]="imageUrl" width="200" height="100">
+
+
+  <table class="table">
+
+    <thead class="table__header">
+    <tr>
+      <td class="table__header-item"> User name</td>
+      <td class="table__header-item"> Photo</td>
+      <td class="table__header-item"> Email</td>
+      <td class="table__header-item"> Gender</td>
+      <td class="table__header-item"> Phone number</td>
+    </tr>
+    </thead>
+
+    <tbody class="table__container-value">
+    <tr *ngFor="let user of users | replaceImage">
+      <td class="table__value"> {{ onGetFullName(user) }} </td>
+      <td class="table__value">
+        <img width="30px" height="30px"
+             src="{{ user.picture }}"
+             alt="Image"/>
+      </td>
+      <td class="table__value">
+        {{ user.email }}
+      </td>
+      <td class="table__value"> {{ user.gender }} </td>
+      <td class="table__value"> {{ user.phone_number }}</td>
+    </tr>
+    </tbody>
+
+  </table>
 </div>
 
